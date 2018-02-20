@@ -61,11 +61,7 @@
           "https://*/*"
       ],
       "js": [
-        "src/jquery-1.4.2.js",
-        "src/jquery.hotkeys.js",
         "src/webgazer.js",
-        "src/actions.js",
-        "src/inject/script.js",
         "src/inject/inject.js"
       ]
     }

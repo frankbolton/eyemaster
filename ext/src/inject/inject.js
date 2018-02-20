@@ -25,15 +25,15 @@ document.body.addEventListener('mouseup', function() {
 
 var hasLoaded = false;
 var blinkVersion = true;
-var predictionsWindow = [];
-var predictionsWindowSize = 10;
-var predictionsWindowIndex = 0;
+//var predictionsWindow = [];
+//var predictionsWindowSize = 10;
+//var predictionsWindowIndex = 0;
 
-Number.prototype.clamp = function(min, max) {
-  return Math.min(Math.max(this, min), max);
-};
+//Number.prototype.clamp = function(min, max) {
+//  return Math.min(Math.max(this, min), max);
+//};
 
-function getPredictionWindowAverage() {
+/*function getPredictionWindowAverage() {
   var x = 0;
   var y = 0;
   if (predictionsWindow.length == 0) {
@@ -43,40 +43,40 @@ function getPredictionWindowAverage() {
     }
   }
 
-  for (var i = 0; i < predictionsWindow.length; i += 1) {
+  /*for (var i = 0; i < predictionsWindow.length; i += 1) {
     x += predictionsWindow[i].x.clamp(0, window.innerWidth);
     y += predictionsWindow[i].y.clamp(0, window.innerHeight);
   }
-  return {"x": x/predictionsWindow.length, "y": y/predictionsWindow.length};
-}
+  return {"x": x/predictionsWindow.length, "y": y/predictionsWindow.length};*/
+//}/*
 
 window.addEventListener("load", function() {
     webgazer.setRegression('ridge') /* currently must set regression and tracker */
         .setTracker('clmtrackr')
         .setGazeListener(function(data, clock) {
-         //   console.log(data); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
-         //   console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
-         if (predictionsWindow.length < predictionsWindowSize && data) {
+            console.log(data); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
+            console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
+         /*if (predictionsWindow.length < predictionsWindowSize && data) {
            predictionsWindow.push(data);
            predictionsWindowIndex += 1;
          } else if(data) {
            predictionsWindow[predictionsWindowIndex] = data;
            predictionsWindowIndex += 1;
-         }
-         predictionsWindowIndex = predictionsWindowIndex % predictionsWindowSize;
-         var tile = onBlinkOnPosition(getPredictionWindowAverage())
-         if(!blinkVersion) {
-         	setSelected(tile)
-         }
+         }*/
+         //predictionsWindowIndex = predictionsWindowIndex % predictionsWindowSize;
+         //var tile = onBlinkOnPosition(getPredictionWindowAverage())
+         //if(!blinkVersion) {
+         //	setSelected(tile)
+         //}
          
         })
-        .setOnBlinkCallback(function() {
+        /*.setOnBlinkCallback(function() {
         	console.log("I see a blink!");
-          // var prediction = getPredictionWindowAverage();
-          // if (prediction && prediction.x > 0 && prediction.y > 0) {
-          //   console.log(prediction.x + "    " + prediction.y);
-          //   onBlinkOnPosition(prediction);
-          // }
+           var prediction = getPredictionWindowAverage();
+           if (prediction && prediction.x > 0 && prediction.y > 0) {
+             console.log(prediction.x + "    " + prediction.y);
+             onBlinkOnPosition(prediction);
+           }
         	//openNewTab();
           var selectedText = window.getSelection().toString();
           // console.log(selectedText && mouseDown && true)
@@ -89,9 +89,9 @@ window.addEventListener("load", function() {
           }
           
         	// textToSpeech("I am google and I can see into your soul!");
-        })
+        })*/
         .begin()
-        // .showPredictionPoints(true);
+        //.showPredictionPoints(true);
 
         // loadVideo() /* shows a square every 100 milliseconds where current prediction is */
 }, false);
@@ -112,14 +112,14 @@ window.addEventListener("blur", function() {
 // 	webgazer.end()
 // }
 
-$(document).ready(function(){
+/*$(document).ready(function(){
         $('body').prepend('<div id="wrapper-eyemaster"></div>');
         chrome.extension.sendRequest({cmd: "read_file"}, function(html){
           $('#wrapper-eyemaster').prepend(html);
           nameQuadrants(namingArray);
         });
        
-});
+});*/
 
 // comment out after we're done training
 window.onbeforeunload = function() {
