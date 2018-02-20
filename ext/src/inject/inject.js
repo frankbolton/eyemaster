@@ -54,6 +54,7 @@ window.addEventListener("load", function() {
     webgazer.setRegression('ridge') /* currently must set regression and tracker */
         .setTracker('clmtrackr')
         .setGazeListener(function(data, clock) {
+            logEvents.logGaze(data);
             console.log(data); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
             console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
          /*if (predictionsWindow.length < predictionsWindowSize && data) {

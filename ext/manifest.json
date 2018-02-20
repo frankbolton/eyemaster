@@ -58,7 +58,8 @@
       ],
       "js": [
         "src/webgazer.js",
-        "src/inject/inject.js"
+        "src/inject/inject.js",
+        "src/inject/logEvents.js"
       ]
     }
   ]
