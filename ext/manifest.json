@@ -21,9 +21,6 @@
     "default_title": "browser action demo",
     "default_popup": "src/browser_action/browser_action.html"
   },
-  "chrome_url_overrides": {
-    "newtab": "src/override/override.html"
-  },
   "permissions": [
     "bookmarks",
     "chrome://favicon/",
@@ -51,8 +48,7 @@
           "https://*/*"
       ],
       "css": [
-        "src/inject/inject.css",
-        "src/inject/styles.css"
+        "src/inject/inject.css"
       ]
     },
     {

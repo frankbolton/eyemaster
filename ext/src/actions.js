@@ -1,5 +1,5 @@
 // tab functions
-function openNewTab() {
+/*function openNewTab() {
 	chrome.runtime.sendMessage({"action": "newTab"});
 }
 
@@ -71,7 +71,7 @@ function loadVideo() {
         setTimeout(loadVideo, 100);
     }
 }
-
+*/
 // actually performs the actions of loading the video
 function loadVideoAction() {
 	webgazer.showPredictionPoints(true);
